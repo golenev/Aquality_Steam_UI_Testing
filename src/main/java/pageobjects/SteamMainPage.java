@@ -1,5 +1,6 @@
 package pageobjects;
 
+import aquality.selenium.browser.AqualityServices;
 import aquality.selenium.elements.interfaces.IButton;
 import aquality.selenium.elements.interfaces.IComboBox;
 import aquality.selenium.elements.interfaces.ILabel;
@@ -50,6 +51,11 @@ public class SteamMainPage extends Form {
     public void goToMarket (){
         btnCommunity.getJsActions().hoverMouse();
         btnMarket.click();
+    }
+    public boolean isMainPageOpen(){
+       // return lblLogoHolder.getJsActions().isElementOnScreen();
+
+        return lblLogoHolder.state().isDisplayed();
     }
 
 

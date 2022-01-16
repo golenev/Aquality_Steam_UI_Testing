@@ -13,7 +13,7 @@ import java.time.Duration;
 
 public class SalesLeadersPage extends Form {
 
-    private ICheckBox chkbxOs = getElementFactory().getCheckBox(By.xpath("//span[contains(text(),'SteamOS + Linux')]"), "чекбокс Линукс");
+    private ICheckBox chkbxOs = getElementFactory().getCheckBox(By.xpath("//span[@data-value='linux']//span//span[@class='tab_filter_control_checkbox']"), "чекбокс Линукс");
     private IComboBox comboxNumberOfPlayers = getElementFactory().getComboBox(By.xpath("//div[@data-collapse-name='category3']"), "Количество игроков");
     private ICheckBox chkbxInsideNumberOfPlayers = getElementFactory().getCheckBox(By.xpath("//span[contains(text(),'" + Config.get("checkBoxInsideNumbersOfPlayesr") + "')]"), "чекбокс кооператив лан");
     private IComboBox comBoxLabels = getElementFactory().getComboBox(By.xpath("//div[contains(text(),'" + Config.get("NarrowByTag") + "')]"), "tags");
@@ -40,19 +40,24 @@ public class SalesLeadersPage extends Form {
 
     public void selectCheckBoxOS() {
         chkbxOs.check();
-
+    }
+    public boolean isCheckBoxOSchecked(){
+       return chkbxOs.state().isDisplayed();
     }
 
     public void selectCheckBoxNumberOfPlayers() {
         comboxNumberOfPlayers.click();
         chkbxInsideNumberOfPlayers.check();
     }
-
+    public boolean isCheckBoxNumberOfPlayersChecked(){
+        return chkbxInsideNumberOfPlayers.state().isDisplayed();
+    }
     public void comBoxLabelsClick() {
-
         btnShowAllTags.click();
-
         checkBoxInsideLabels.check();
+    }
+    public boolean isCheckboxInsideLabesChecked(){
+        return checkBoxInsideLabels.state().isDisplayed();
     }
 
     public String getInfoAboutGame() {

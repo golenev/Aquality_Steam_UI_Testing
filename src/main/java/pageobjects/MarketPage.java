@@ -21,6 +21,7 @@ private IButton btnSearch = getElementFactory().getButton(By.xpath("//span[norma
 private IButton btnShowingResultFor = getElementFactory().getButton(By.xpath("//a[normalize-space()='\""+Config.get("ShowingResultsFor")+"\"']"), "фильтр в итоговом списке");
 private IButton btnSearchResult = getElementFactory().getButton(By.xpath("//div[@id='result_"+Config.get("SearchResult")+"']"), "Результат поиска по играм");
 private ITextBox txtDescriptionOfGame = getElementFactory().getTextBox(By.xpath("//div[@id='largeiteminfo_content']//div[@class='item_desc_description']"), "описание игры");
+private ITextBox displayedFinalFilters =  getElementFactory().getTextBox(By.xpath("//div[@class='market_search_results_header']//div"), "список с выбранными ранее фильтрами");
 
     /**
      * Constructor with parameters
@@ -54,6 +55,19 @@ private ITextBox txtDescriptionOfGame = getElementFactory().getTextBox(By.xpath(
         txtAdvancedSearch.clearAndType(query);
         btnSearch.click();
     }
+    public boolean check1FinalFilters(){
+       return displayedFinalFilters.getText().contains("Dota 2");
+    }
+    public boolean check2FinalFilters(){
+        return displayedFinalFilters.getText().contains("golden");
+    }
+    public boolean check3FinalFilters(){
+        return displayedFinalFilters.getText().contains("Lifestealer");
+    }
+    public boolean check4FinalFilters(){
+        return displayedFinalFilters.getText().contains("Immortal");
+    }
+
     public void deleteFiltersFromResult(){
         btnShowingResultFor.click();
     }
