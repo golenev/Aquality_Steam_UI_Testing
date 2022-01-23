@@ -1,15 +1,13 @@
 package pageobjects;
 
-import aquality.selenium.browser.AqualityServices;
 import aquality.selenium.elements.interfaces.IButton;
 import aquality.selenium.elements.interfaces.IComboBox;
 import aquality.selenium.elements.interfaces.ILabel;
 import aquality.selenium.elements.interfaces.ITextBox;
 import aquality.selenium.forms.Form;
 import helpers.RegExHelper;
-import main.Config;
+import helpers.ConfigProperties;
 import org.openqa.selenium.By;
-import org.openqa.selenium.interactions.Actions;
 
 public class SteamMainPage extends Form {
     private ILabel lblLogoHolder = getElementFactory().getLabel(By.xpath("//span[@id='logo_holder']//a//img"), "уникальный элемент лого");
@@ -18,8 +16,8 @@ public class SteamMainPage extends Form {
     private ITextBox txtOnliners = getElementFactory().getTextBox(By.xpath("(//div[@class='online_stat'])[1]"), "счётсик игроков Онлайн");
     private IComboBox dropdownNewAndRemarkable = getElementFactory().getComboBox(By.cssSelector("#noteworthy_tab"), "Новое и примечательное");
     private IButton btnSalesLeaders = getElementFactory().getButton(By.cssSelector("div[id='noteworthy_flyout'] a:nth-child(1)"), "лидеры продаж");
-    private IButton btnCommunity = getElementFactory().getButton(By.xpath("//a[contains(text(),'" + Config.get("btnNavBar") + "')]"), "Сообщество");
-    private IButton btnMarket = getElementFactory().getButton(By.xpath("//div[@class='supernav_content']//a[@class='submenuitem'][normalize-space()='"+Config.get("btnInsideCommunity")+"']"), "кнопка Маркет");
+    private IButton btnCommunity = getElementFactory().getButton(By.xpath("//a[contains(text(),'" + ConfigProperties.get("btnNavBar") + "')]"), "Сообщество");
+    private IButton btnMarket = getElementFactory().getButton(By.xpath("//div[@class='supernav_content']//a[@class='submenuitem'][normalize-space()='"+ ConfigProperties.get("btnInsideCommunity")+"']"), "кнопка Маркет");
 
 
     public SteamMainPage() {
@@ -53,10 +51,7 @@ public class SteamMainPage extends Form {
         btnMarket.click();
     }
     public boolean isMainPageOpen(){
-       // return lblLogoHolder.getJsActions().isElementOnScreen();
-
-        return lblLogoHolder.state().isDisplayed();
+       return lblLogoHolder.state().isDisplayed();
     }
-
 
 }

@@ -1,6 +1,4 @@
-
-import com.fasterxml.jackson.annotation.JsonTypeInfo;
-import main.Config;
+import helpers.ConfigProperties;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pageobjects.MarketPage;
@@ -19,14 +17,14 @@ public class SteamTests extends BaseTest{
         steamMainPage.btnAboutClick();
         Assert.assertTrue(steamMainPage.isOnlineMoreThanInGame(), "неверно");
         steamMainPage.btnStoreClick();
-
     }
+
     @Test
     public void secondCase()  {
         Assert.assertTrue(steamMainPage.isMainPageOpen());
         steamMainPage.comboBoxNewAndRemarkableHover();
         salesLeadersPage.selectCheckBoxOS();
-        Assert.assertTrue(salesLeadersPage.isCheckBoxOSchecked(), "ошибка, чекбок не вбыран");
+        Assert.assertTrue(salesLeadersPage.isCheckBoxOSchecked(), "ошибка, чекбок не выбран");
         salesLeadersPage.selectCheckBoxNumberOfPlayers();
         Assert.assertTrue(salesLeadersPage.isCheckBoxNumberOfPlayersChecked(), "ошибка, чекбокс не выбран");
         salesLeadersPage.comBoxLabelsClick();
@@ -44,7 +42,7 @@ public class SteamTests extends BaseTest{
         marketPage.setFilterAtMarket();
         marketPage.selectHero();
         marketPage.columnCheckBoxes();
-        marketPage.setSearchField(Config.get("setSearchField"));
+        marketPage.setSearchField(ConfigProperties.get("setSearchField"));
         Assert.assertTrue(marketPage.check1FinalFilters());
         Assert.assertTrue(marketPage.check2FinalFilters());
         Assert.assertTrue(marketPage.check3FinalFilters());
@@ -54,12 +52,10 @@ public class SteamTests extends BaseTest{
         Assert.assertFalse(marketPage.check2FinalFilters());
         Assert.assertTrue(marketPage.check3FinalFilters());
         Assert.assertTrue(marketPage.check4FinalFilters());
-
         marketPage.goToDesiredResult();
         Assert.assertTrue(marketPage.checkFirstMatchFromResultItemPage(), "ошибка, несовпадение");
         Assert.assertTrue(marketPage.checkSecondMatchFromResultItemPage(), "ошибка, несовпадение");
         Assert.assertTrue(marketPage.checkThirdMatchFromResultItemPage(), "ошибка, несовпадение");
-
     }
 
 }

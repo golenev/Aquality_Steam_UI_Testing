@@ -4,7 +4,7 @@
     <test verbose="2" name="Mirapolis test task">
         <classes>
             <class name="BaseTest"/>
-            <class name="AuthTest"/>
+            <class name="SteamTests"/>
         </classes>
     </test>
 </suite>

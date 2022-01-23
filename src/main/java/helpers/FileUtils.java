@@ -1,7 +1,6 @@
-package utils;
+package helpers;
 
 import aquality.selenium.core.logging.Logger;
-
 import java.io.FileInputStream;
 import java.util.Properties;
 

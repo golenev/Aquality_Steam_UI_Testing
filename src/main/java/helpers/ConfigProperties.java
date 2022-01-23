@@ -1,10 +1,9 @@
-package main;
+package helpers;
 
-import utils.FileUtils;
 
 import java.util.Properties;
 
-public class Config {
+public class ConfigProperties {
     private static Properties properties;
 
     public static String get(String key) {
