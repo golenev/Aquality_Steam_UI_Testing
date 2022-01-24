@@ -23,10 +23,10 @@ private ITextBox txtDescriptionOfGame = getElementFactory().getTextBox(By.xpath(
 private ITextBox displayedFinalFilters =  getElementFactory().getTextBox(By.xpath("//div[@class='market_search_results_header']//div"), "список с выбранными ранее фильтрами");
 
     public MarketPage() {
-        super(By.xpath("//span[@class='market_title_text']"), "title Market Page");
+        super(By.xpath("//span[@id='logo_holder']//a//img"), "Логотип Steam");
     }
 
-    public void goToSearchCommunityMarket(){
+    public void goToAdvancedSearch(){
         btnAdvancedSearch.click();
     }
     public void setFilterAtMarket(){

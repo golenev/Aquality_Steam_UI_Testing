@@ -23,7 +23,7 @@ public class SalesLeadersPage extends Form {
     private IButton btnShowAllTags = getElementFactory().getButton(By.cssSelector("a[onclick=\"ExpandOptions(this, 'TagFilter_Container'); return false;\"]"), "показать все метки");
 
     public SalesLeadersPage() {
-        super(By.cssSelector("//span[contains(text(),'SteamOS + Linux')]"), "pageHeader");
+        super(By.cssSelector(".pageheader.full"), "pageHeader");
     }
 
     public void selectCheckBoxOS() {
@@ -61,6 +61,7 @@ public class SalesLeadersPage extends Form {
 
     public void clickFirstSearchResult() {
         firstSearchResult.click();
+
     }
 
     public String buildInfoAboutGameToCompare() {
