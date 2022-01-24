@@ -14,7 +14,7 @@ public class SteamTests extends BaseTest{
     private final AboutSteamPage aboutSteamPage = new AboutSteamPage();
 
     @Test
-    public void testMainPage(){
+    public void firstCase(){
         Assert.assertTrue(steamMainPage.state().isDisplayed(),"Ошибка. Главная страница не отобразилась");
         steamMainPage.btnAboutClick();
         Assert.assertTrue(aboutSteamPage.state().isDisplayed(), "Ошибка. Страница AboutSteam не отобразилась");

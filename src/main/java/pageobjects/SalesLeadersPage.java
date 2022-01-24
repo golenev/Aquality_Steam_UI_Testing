@@ -61,7 +61,6 @@ public class SalesLeadersPage extends Form {
 
     public void clickFirstSearchResult() {
         firstSearchResult.click();
-
     }
 
     public String buildInfoAboutGameToCompare() {

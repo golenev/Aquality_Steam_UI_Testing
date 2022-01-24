@@ -12,7 +12,7 @@ public class FileUtils {
             properties = new Properties();
             properties.load(fis);
         } catch (Exception e) {
-            Logger.getInstance().debug("Properties can't be loaded", e);
+            Logger.getInstance().debug("Не удалось получить Properties по указанному пути", e);
         }
         return properties;
     }
